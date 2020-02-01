@@ -14,15 +14,12 @@ export class CarosalimagesComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onScroll3() {
     let prev = window.pageYOffset;
-    let cur = window.pageXOffset;
-    // console.log(prev);
-
     if (prev > 800) {
       document.getElementById("top").style.display = 'block';
     } else {
       document.getElementById("top").style.display = 'none';
     }
-    prev = cur
+  
   }
   ngOnInit() {
   }
