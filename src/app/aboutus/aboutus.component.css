@@ -1,0 +1,74 @@
+.background{
+    background-image: url("https://img1a.flixcart.com/www/promos/new/20141125-225514-bg.jpg");
+    min-height: 500px;
+    min-width: 414px;
+}
+.head{
+    padding-left: 10%;
+    padding-top: 63px;
+    width: 88%;
+}
+.head2{
+    padding-left: 33%;
+    padding-top: 100px;
+}
+.head3{
+    padding-left: 22%;
+    padding-top: 100px;
+}
+.head4{
+    padding-left: 100px;
+    padding-top: 100px;
+}
+.head5{
+    padding-left: 28%;
+    padding-top: 100px;
+}
+button{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    box-shadow: 3px 1px 13px 13px rgb(189, 187, 179);
+}
+button:hover{
+    color: #fb0;
+}
+.col-12{
+    max-width: 100% !important;
+}
+
+@media only screen and (max-width:1200px){
+    .background{
+        width: 100%;
+    }
+    .col-12{
+        max-width: 80% !important;
+    }
+    .head4{
+        width: 100%;
+        padding-top: 30px;
+    }
+    .head3{
+        width: 100%;
+        padding-top: 30px;
+    }
+    .head{
+        width: 100%;
+        padding-top: 30px;
+        margin-left: 28px;
+    }
+    .head5{
+        width: 100%;
+        padding-top: 30px;
+    }
+    .head2{
+        width: 100%;
+        padding-top: 30px;
+    }
+    button{
+        display: none;
+    }
+}
