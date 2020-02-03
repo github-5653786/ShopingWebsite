@@ -9,7 +9,7 @@ export class HomepageComponent implements OnInit {
 
   constructor() {
   }
-
+  // Mustafa kaladagi
   ngOnInit() {
   }
 
