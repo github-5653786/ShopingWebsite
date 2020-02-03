@@ -50,7 +50,7 @@
 <marquee scrollamount="16">Welcome to Online Shopping</marquee>
 
 <!-- back to top icon -->
-<div class="top" id="top" (click)="backtotop()" style="display: none;">
+<div *ngIf="isMobileView" class="top" id="top" (click)="backtotop()">
     <i style="font-size: 25px;" class='fas fa-angle-up'></i>
 </div>
 
