@@ -35,7 +35,7 @@ marquee{
     cursor: pointer;
 }
 .top:hover{
-    color: pink;
+    color: yellow;
 }
 @media only screen and (max-width: 1200px) {
     img{

@@ -15,27 +15,23 @@ export class CarosalimagesComponent implements OnInit {
   onScroll3() {
     let prev = window.pageYOffset;
     if (prev > 800) {
-      document.getElementById("top").style.visibility='visible'
+      document.getElementById("top").style.display = 'block'
     } else {
-      document.getElementById("top").style.visibility = 'hidden';
+      document.getElementById("top").style.display = 'none';
     }
   }
 
 
   isMobileView = true;
-  // code to hide the back to top icon in phone view
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    const screenSize = 768;
-    // this.isMobileView = event.target.innerWidth < screenSize;
-    if (event.target.innerWidth < screenSize) {
-      this.isMobileView = false
-      console.log('screen mob', this.isMobileView);
-    }
-    else {
+  onResize() {
+    if (window.innerWidth < 500) {
+      this.isMobileView = false;
+    } else {
       this.isMobileView = true;
     }
   }
+
 
   ngOnInit() {
   }
