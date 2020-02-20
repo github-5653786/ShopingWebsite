@@ -20,7 +20,7 @@ export class HomepageComponent implements OnInit {
         } else {
           var src = entry.target.getAttribute("data-src");
           entry.target.setAttribute("src", src);
-          entry.target.classList.add("loaded");          
+          entry.target.classList.add("loaded");
           imgobserver.unobserve(entry.target);
         }
       })

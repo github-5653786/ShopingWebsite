@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule }   from '@angular/forms';
 
 
 @NgModule({
@@ -19,12 +21,13 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     HomepageComponent,
     AboutusComponent,
     FooterComponent,
-    CarosalimagesComponent
+    CarosalimagesComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,FormsModule,
     ModalModule.forRoot(),
     CarouselModule.forRoot()
   ],

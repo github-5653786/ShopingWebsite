@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef, HostListener } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carosalimages',
@@ -10,6 +11,8 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
   ]
 })
 export class CarosalimagesComponent implements OnInit {
+
+  constructor(private router:Router){}
 
   @HostListener('window:scroll', ['$event'])
   onScroll3() {
@@ -32,8 +35,13 @@ export class CarosalimagesComponent implements OnInit {
     }
   }
 
-
+  login;
   ngOnInit() {
+    if (localStorage.getItem("user") == "mustafa@gmail.com") {
+      this.login = "Logout"
+    } else {
+      this.login = "Login"
+    }
   }
 
   backtotop() {
@@ -42,6 +50,16 @@ export class CarosalimagesComponent implements OnInit {
       'top': 0,
       'left': 0
     });
+  }
+
+  logout() {
+    if (window.confirm("Are you sure want to logout")) {
+      localStorage.removeItem("user");
+      this.router.navigate(['/signup']);
+    } else {
+      console.log("you are in same page");
+
+    }
   }
 
 }
