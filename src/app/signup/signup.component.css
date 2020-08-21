@@ -38,3 +38,13 @@
     color: #FB0;
     cursor: pointer;
 }
+
+@media only screen and (max-width:786px) {
+    .container-fluid {
+        height: 734px;
+    }
+    .forms {
+        margin-top: 220px;
+        width: 90%;
+    }
+}
