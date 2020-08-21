@@ -1,4 +1,4 @@
-form{
+/* form {
     background-color: #DDDDDD;
     border: 1px solid rgb(196, 189, 189);
     border-radius: 4px 0px 0px 4px;
@@ -7,7 +7,34 @@ form{
     width: 53%;
     margin: 50px 0px 5px 334px;
 }
-::selection{
-    color:white;
-    background-color: red;
+
+@media only screen and (max-width:768px) {
+    form {
+        width: 100%;
+        margin: 0px;
+    }
+} */
+
+.container-fluid {
+    background-image: url('https://www.godigit.com/content/dam/godigit/directportal/en/insurance/motor-insurance/car-insurance/promenade-area2.svg');
+    background-size: cover;
+    height: 620px;
+}
+
+.danger {
+    color: red;
+}
+
+.forms {
+    padding: 2.5rem;
+    margin: auto;
+    margin-top: 160px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 1px 25px 0 rgba(32, 32, 32, .28);
+}
+
+.phNum {
+    color: #FB0;
+    cursor: pointer;
 }

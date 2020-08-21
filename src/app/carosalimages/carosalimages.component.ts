@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CarosalimagesComponent implements OnInit {
 
-  constructor(private router:Router){}
+  constructor(private router: Router) { }
 
   @HostListener('window:scroll', ['$event'])
   onScroll3() {
@@ -35,13 +35,8 @@ export class CarosalimagesComponent implements OnInit {
     }
   }
 
-  login;
   ngOnInit() {
-    if (localStorage.getItem("user") == "mustafa@gmail.com") {
-      this.login = "Logout"
-    } else {
-      this.login = "Login"
-    }
+
   }
 
   backtotop() {
@@ -51,15 +46,4 @@ export class CarosalimagesComponent implements OnInit {
       'left': 0
     });
   }
-
-  logout() {
-    if (window.confirm("Are you sure want to logout")) {
-      localStorage.removeItem("user");
-      this.router.navigate(['/signup']);
-    } else {
-      console.log("you are in same page");
-
-    }
-  }
-
 }

@@ -1,30 +1,45 @@
-<h5 style="text-align: center;">Without login you cannot see the home page</h5>
-<form #formname="ngForm" (ngSubmit)="formname.valid && validate(formname.value)">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" [(ngModel)]=number #number1="ngModel" name="email" required class="form-control"
-            id="exampleInputEmail1">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        <div *ngIf="number1.touched || number1.errors?.required && formname.submitted">
-            <div *ngIf="number1.errors?.required" class="alert-danger">
-                Email is Required.
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3 forms" *ngIf="showNumModal">
+            <form #formname="ngForm" (ngSubmit)="formname.valid && SendOTP(formname.value)">
+                <div class="form-group">
+                    <p class="font-weight-bold">You will get an OTP on this number to verify your identity</p>
+                    <label for="number">Enter Mobile Number</label>
+                    <input autocomplete="off" type="text" class="form-control" required id="number" [(ngModel)]=number
+                        #number1="ngModel" name="number" maxlength="10">
+                    <div *ngIf="number1.touched || number1.errors?.required && formname.submitted">
+                        <div *ngIf="number1.errors?.required" class="danger">
+                            Number is Required.
+                        </div>
+                        <div *ngIf="maxLen" class="danger">
+                            Enter a valid Number.
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!formname.valid" class="btn btn-primary">Get OTP</button>
+            </form>
+        </div>
+
+        <div class="col-xl-3 forms" *ngIf="showValModal">
+            <form #formname="ngForm" (ngSubmit)="formname.valid && validateOTP(formname.value)">
+                <div class="form-group">
+                    <p class="font-weight-bold">We Sent an OTP on <span class="phNum"
+                            (click)="showNumModal = true;showValModal=false">{{number}}</span> Number, Don't
+                        disclose it to anyone.</p>
+                    <label for="otp">Enter OTP</label>
+                    <input autocomplete="off" type="text" class="form-control" required id="otp" [(ngModel)]=otp
+                        #otpNum="ngModel" name="otp" maxlength="6">
+                    <div *ngIf="otpNum.touched || otpNum.errors?.required && formname.submitted">
+                        <div *ngIf="otpNum.errors?.required" class="danger">
+                            OTP is Required.
+                        </div>
+                        <div *ngIf="validateOtp" class="danger">
+                            Enter Valid OTP!
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!formname.valid" class="btn btn-primary">Continue</button>
+            </form>
         </div>
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword2">Password</label>
-        <input type="password" [(ngModel)]=pass #pas="ngModel" name="password" required class="form-control"
-            id="exampleInputEmail2">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
-        <div *ngIf="pas.touched || pas.errors?.required && formname.submitted">
-            <div *ngIf="pas.errors?.required" class="alert-danger">
-                Password is Required.
-            </div>
-        </div>
-    </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>

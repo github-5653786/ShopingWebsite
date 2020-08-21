@@ -9,21 +9,44 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private ser:MyserviceService,private router:Router) { }
+  showNumModal: boolean;
+  showValModal: boolean;
+  validateOtp: boolean;
+  number = '';
 
-  ngOnInit() {
+  constructor(private router: Router, private ser: MyserviceService) {
+    this.showNumModal = true;
+    this.showValModal = false;
+    this.validateOtp = false;
   }
-  validate(e) {
-    let a = e.email;
-    let b = e.password;
-    let c = this.ser.istrue(a, b);
-    if (c == true) {
-      localStorage.setItem("user", a);
-      this.router.navigate(['/home'])
+
+  ngOnInit() { }
+
+  SendOTP(e) {
+    if (e.number.length == 10) {
+      this.ser.GetOTP(e.number).subscribe(data => {
+        let dta = data;
+      },
+        error => {
+          console.log("Error Occured ", error);
+
+        });
+      this.showNumModal = false;
+      this.showValModal = true;
     } else {
-      alert("You should enter correct email and password")
-      location.reload();
+      alert("Enter valid Number....!")
     }
   }
 
+  validateOTP(otp) {
+    this.ser.ValidateOTP(otp.otp).subscribe(responce => {
+      let responces = responce;
+      if (responces.status === 204) {
+        this.validateOtp = true;
+      } else {
+        this.validateOtp = false;
+        this.router.navigate(['/home']);
+      }
+    });
+  }
 }

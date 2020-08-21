@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,13 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class MyserviceService {
 
-  constructor() { }
-  istrue(a, b) {
-    if (a == "mustafa@gmail.com" && b == "123") {
-      return true;
-    } else {
-      return false;
-    }
+  constructor(private http: Http) { }
+
+  GetOTP(Num: any) {
+    return this.http.get('https://direct-prod-directportal.godigit.com/DirectPortal/generate/otp/' + Num);
   }
 
+  ValidateOTP(Otp) {
+    return this.http.get('https://direct-prod-directportal.godigit.com/DirectPortal/validate/otp/' + Otp)
+  }
 }
